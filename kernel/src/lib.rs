@@ -8,10 +8,4 @@ pub mod space;
 mod sources;
 mod sinks;
 mod pure;
-<<<<<<< Updated upstream
-=======
 pub mod output;
-
-pub use sinks::WriteResourceRequest;
-pub use sources::ResourceRequest;
->>>>>>> Stashed changes
