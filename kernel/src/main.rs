@@ -1,10 +1,6 @@
 #![feature(string_from_utf8_lossy_owned)]
 
-<<<<<<< Updated upstream
-use mork::{expr, prefix, sexpr};
-=======
 use mork::{expr, prefix, sexpr, space, output};
->>>>>>> Stashed changes
 use mork::space::{transitions, unifications, writes, Space, ACT_PATH};
 use mork_frontend::bytestring_parser::Parser;
 use mork_expr::{item_byte, serialize, SourceItem, Tag};
