@@ -3,5 +3,7 @@ Cargo.lock
 .DS_Store
 .vscode
 tmp
-test/python_fixtures.py
+kernel/tests/fixtures/python_fixture.py
 test.mm2
+__pycache__/
+*.py[cod]

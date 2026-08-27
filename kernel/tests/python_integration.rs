@@ -1,7 +1,7 @@
 //! Integration coverage for the Python worker protocol and result cache.
 //!
 //! The MM2 spellings exercised here are kept in
-//! `kernel/resources/python_integration.mm2`. The end-to-end tests below
+//! `kernel/resources/python/integration.mm2`. The end-to-end tests below
 //! drive the source/sink zipper path through `Space`.
 
 use std::path::PathBuf;
@@ -10,13 +10,13 @@ use mork::space::Space;
 use mork::{PyCommand, PyResult, PySessionManager, PyValue};
 
 fn manager() -> PySessionManager {
-    let worker = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../py_worker.py");
+    let worker = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("python/worker.py");
     PySessionManager::with_worker(worker)
 }
 
 fn space() -> Space {
     let mut space = Space::new();
-    let worker = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../py_worker.py");
+    let worker = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("python/worker.py");
     space.py = PySessionManager::with_worker(worker);
     space
 }
@@ -90,7 +90,7 @@ fn calls_builtin_function_and_reads_float_result() {
 #[test]
 fn imports_arbitrary_file_into_persistent_session() {
     let mut manager = manager();
-    let path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("tests/python_fixture.py");
+    let path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/python_fixture.py");
     let imported = run(
         &mut manager,
         "py1",

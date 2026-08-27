@@ -1,5 +1,5 @@
 use crate::python::py_result_to_expr_bytes;
-use crate::python_manager::PySessionManager;
+use crate::python::PySessionManager;
 use crate::sinks::{WriteResource, WriteResourceRequest};
 use crate::sources::{AFactor, Resource, ResourceRequest};
 use futures::StreamExt;

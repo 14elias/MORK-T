@@ -1,6 +1,6 @@
 //! Process and IPC management for persistent Python sessions.
 //!
-//! `py_worker.py` speaks a deliberately small protocol: each JSON message is
+//! `kernel/python/worker.py` speaks a deliberately small protocol: each JSON message is
 //! preceded by a four byte, big-endian payload length.  This module keeps the
 //! process details out of the MM2 source/sink implementations and provides
 //! synchronous operations, which is what the current MM2 evaluator requires.
@@ -15,7 +15,7 @@ use serde_json::{Value, json};
 use crate::python::{PyCommand, PyResult, PyValue, py_command_from_expr, py_result_to_expr_bytes};
 use mork_expr::Expr;
 
-const DEFAULT_WORKER: &str = "py_worker.py";
+const DEFAULT_WORKER: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/python/worker.py");
 const MAX_FRAME_SIZE: u32 = 64 * 1024 * 1024;
 
 #[derive(Debug)]

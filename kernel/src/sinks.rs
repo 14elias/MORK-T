@@ -121,7 +121,7 @@ pub(crate) enum WriteResource<'w, 'a, 'k> {
     BTM(&'w mut WriteZipperTracked<'a, 'k, ()>),
     ACT(()),
     Z3(&'w mut subprocess::Popen),
-    PY(*mut crate::python_manager::PySessionManager),
+    PY(*mut crate::python::PySessionManager),
 }
 
 // trait JoinLattice  {
